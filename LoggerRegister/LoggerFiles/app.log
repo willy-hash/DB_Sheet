@@ -1,0 +1,4 @@
+
+2025-01-04 18:53:31 - INFO - Connection.ConnectionSheet - Connection to Google Sheet 'DB_Python' established successfully.
+2025-01-04 18:53:31 - WARNING - Queries.QueriesSheet -  'Method - update()' - 'Not found' Uid 'fgkl�gjfklgfjg'  - 'NoneType' object has no attribute 'row'
+
