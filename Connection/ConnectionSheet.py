@@ -17,7 +17,7 @@ class ConnectionSheet(Singleton):
             configuration = os.getenv("SERVICE_ACCOUNT")
 
             if configuration is None:
-                self.logger.error("SERVICE_ACCOUNT environment variable not set")
+                self.logger.critical("SERVICE_ACCOUNT environment variable not set")
                 raise ValueError("SERVICE_ACCOUNT not configured")
 
             configuration_json = json.loads(configuration)
@@ -29,7 +29,7 @@ class ConnectionSheet(Singleton):
             self.logger.info("Connection to Google Sheet 'DB_Python' established successfully.")
 
         except Exception as e:
-            self.logger.exception("Failed to initialize ConnectionSheet.")
+            self.logger.critical(f"Failed to initialize ConnectionSheet - {e}")
             raise e
 
     def get_Sheet(self):

@@ -1,15 +1,16 @@
-from logging import Logger
-
+import os
 import LoggerRegister.logger_config #Establish global configuration of 'logging' package
 from flask import Flask
+from Routes.Main import main
+import Config
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "¡Hola, Flask!"
+app.register_blueprint(main)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+env = os.getenv('FLASK_ENV')
 
-Add new module: [LoggerRegister].
+if env == 'production':
+    app.config.from_object(Config.productionConfig)
+else:
+    app.config.from_object(Config.developmentConfig)

@@ -12,13 +12,13 @@ class QueriesMain:
         try:
             return self.worksheet.get_all_records()
         except Exception as e:
-            self.logger.warning(f" 'Method - get_all()' - 'Get values' Error to get values - {e}")
+            self.logger.error(f" 'Method - get_all()' - 'Get values' Error to get values - {e}")
 
     def add(self, values: list, uid: str) -> bool:
         rows = None
         try:
             rows = self.get_all()
-            last_row = len(rows) + 1
+            last_row = len(rows) + 2 #Add two to position itself in the last row. Header stay in first row
 
             newRow = values + [uid]
 
@@ -27,9 +27,9 @@ class QueriesMain:
 
         except Exception as e:
             if rows is not None:
-                self.logger.warning(f" 'Method - add()' - 'Error to add row' - {e}")
+                self.logger.error(f" 'Method - add()' - 'Error to add row' - {e}")
             else:
-                self.logger.warning(f" 'Method - add()' - 'Error to get values row' - {e}")
+                self.logger.error(f" 'Method - add()' - 'Error to get values row' - {e}")
             return False
 
     def update(self, uid: str, values: list) -> bool:
@@ -41,22 +41,21 @@ class QueriesMain:
 
         except Exception as e:
             if cell is not None:
-                self.logger.warning(f" 'Method - update()' - 'Error to update row' - {e}")
+                self.logger.error(f" 'Method - update()' - 'Error to update row' - {e}")
             else:
-                self.logger.warning(f" 'Method - update()' - 'Not found' Uid '{uid}'  - {e}" )
-
+                self.logger.error(f" 'Method - update()' - 'Not found' Uid '{uid}'  - {e}" )
             return False
 
     def remove(self, uid : str) -> bool:
         cell = None
         try:
             cell = self.worksheet.find(uid)
-            self.worksheet.update([["", "", ""]], f"A{cell.row}:C{cell.row}")
+            self.worksheet.delete_rows(cell.row)
             return True
 
         except Exception as e:
             if cell is not None:
-                self.logger.warning(f" 'Method - remove()' - 'Error to remove row' - {e}")
+                self.logger.error(f" 'Method - remove()' - 'Error to remove row' - {e}")
             else:
-                self.logger.warning(f" 'Method - remove()' - 'Not found' Uid '{uid}' for remove - {e}")
+                self.logger.error(f" 'Method - remove()' - 'Not found' Uid '{uid}' for remove - {e}")
             return False
