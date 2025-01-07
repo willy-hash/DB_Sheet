@@ -10,7 +10,7 @@ app.register_blueprint(main)
 
 env = os.getenv('FLASK_ENV')
 
-if env == 'production':
+if env == 'development':
     app.config.from_object(Config.productionConfig)
 else:
     app.config.from_object(Config.developmentConfig)
