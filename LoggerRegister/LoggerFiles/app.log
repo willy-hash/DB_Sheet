@@ -1,8 +1,0 @@
-2025-01-06 15:21:31 - INFO - Connection.ConnectionSheet - Connection to Google Sheet 'DB_Python' established successfully.
-2025-01-06 15:21:31 - INFO - werkzeug - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2025-01-06 15:21:31 - INFO - werkzeug - [33mPress CTRL+C to quit[0m
-2025-01-06 15:22:10 - INFO - werkzeug - 127.0.0.1 - - [06/Jan/2025 15:22:10] "GET / HTTP/1.1" 200 -
-2025-01-06 15:22:26 - INFO - werkzeug - 127.0.0.1 - - [06/Jan/2025 15:22:26] "GET / HTTP/1.1" 200 -
-2025-01-06 15:22:34 - INFO - werkzeug - 127.0.0.1 - - [06/Jan/2025 15:22:34] "GET /data HTTP/1.1" 200 -
-2025-01-06 15:22:54 - INFO - werkzeug - 127.0.0.1 - - [06/Jan/2025 15:22:54] "GET / HTTP/1.1" 200 -
